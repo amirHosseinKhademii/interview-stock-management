@@ -3,7 +3,7 @@ import { wrapper } from 'tests'
 import { useProducReserve } from '../use-product-reserve'
 
 describe('Use Product refill', () => {
-  it('Should close dialog after submit ', async () => {
+  it('Should properly submit ', async () => {
     const { result, waitFor } = renderHook(() => useProducReserve(), {
       wrapper,
     })

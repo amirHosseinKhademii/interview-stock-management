@@ -22,7 +22,12 @@ export const useProductForm = () => {
       : {},
   })
 
-  const { mutate, isLoading } = usePatch({
+  const {
+    mutate,
+    isLoading,
+    isSuccess,
+    data: patchData,
+  } = usePatch({
     url: 'http://localhost:8080/api/product/update',
     onError,
     onSuccess: () => {
@@ -34,6 +39,8 @@ export const useProductForm = () => {
   return {
     control,
     isLoading,
+    isSuccess,
+    patchData,
     onSubmit: handleSubmit((state) => {
       const payload = {
         ...state,
