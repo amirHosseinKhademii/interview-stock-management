@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { UiProvider } from 'provider/ui-provider'
 import { Router } from './router'
 
-const Boot = () => (
+const Boot = (): JSX.Element => (
   <QueryClientProvider client={new QueryClient()}>
     <UiProvider>
       <Router />

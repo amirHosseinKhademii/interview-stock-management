@@ -5,7 +5,7 @@ import { Skeleton } from 'components/skeleton'
 import { useUi } from 'hooks/use-ui'
 import { MainLayout } from 'layouts/main'
 
-export const Router = memo(() => {
+export const Router = memo((): JSX.Element => {
   const {
     uiState: { toast },
   } = useUi()
