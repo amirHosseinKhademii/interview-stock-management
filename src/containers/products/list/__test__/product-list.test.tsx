@@ -2,7 +2,7 @@ import { render, waitFor, screen, act } from '@testing-library/react'
 import { wrapper } from 'tests'
 import { ProductsList } from '..'
 
-describe('Use Product list', () => {
+describe(' Product list', () => {
   it('Should return proper data', async () => {
     render(<ProductsList />, { wrapper })
     const skeleton = screen.getAllByTestId('table-skeleton')

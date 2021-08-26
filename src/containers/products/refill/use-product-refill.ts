@@ -19,7 +19,12 @@ export const useProductRefill = () => {
 
   const formState = useWatch({ control }) as any
 
-  const { mutate, isLoading } = usePut({
+  const {
+    mutate,
+    isLoading,
+    isSuccess,
+    data: putData,
+  } = usePut({
     url: data ? `http://localhost:8080/api/product/${data.id}/refill` : '',
     params: { amount: formState.amount },
     onError,
@@ -32,6 +37,8 @@ export const useProductRefill = () => {
   return {
     control,
     isLoading,
+    putData,
+    isSuccess,
     onSubmit: handleSubmit(() => {
       mutate({ payload: null })
     }),

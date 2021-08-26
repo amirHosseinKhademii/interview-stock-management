@@ -19,7 +19,12 @@ export const useProducReserve = () => {
 
   const formState = useWatch({ control }) as any
 
-  const { mutate, isLoading } = usePut({
+  const {
+    mutate,
+    isLoading,
+    isSuccess,
+    data: putData,
+  } = usePut({
     url: data ? `http://localhost:8080/api/product/${data.id}/reserve` : '',
     params: { amount: formState.amount },
     onError,
@@ -32,6 +37,8 @@ export const useProducReserve = () => {
   return {
     control,
     isLoading,
+    isSuccess,
+    putData,
     onSubmit: handleSubmit((state) => {
       if (data.stock < parseInt(state.amount))
         setError('amount', {
