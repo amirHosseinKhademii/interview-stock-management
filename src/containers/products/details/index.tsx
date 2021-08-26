@@ -12,26 +12,30 @@ export const ProductDetails = memo(() => {
       {isLoading ? (
         <LoaidngBounce size="small" />
       ) : (
-        data && (
-          <Fragment>
-            <Input label="Name" disabled value={data.name} />
-            <Input
-              label="Stock number"
-              className="mt-4"
-              disabled
-              value={data.stock.toString()}
-            />
-            {data.reservations.map((item) => (
+        <Fragment>
+          <Input
+            label="Name"
+            disabled
+            value={data && data.name ? data.name : null}
+          />
+          <Input
+            label="Stock number"
+            className="mt-4"
+            disabled
+            value={data && data.stock ? data.stock.toString() : null}
+          />
+          {data &&
+            data.reservations &&
+            data.reservations.map((item) => (
               <Input
                 key={item.id}
                 label="Reservations"
                 className="mt-4"
                 disabled
-                value={item.amount.toString()}
+                value={item && item.amount ? item.amount.toString() : null}
               />
             ))}
-          </Fragment>
-        )
+        </Fragment>
       )}
     </div>
   )
