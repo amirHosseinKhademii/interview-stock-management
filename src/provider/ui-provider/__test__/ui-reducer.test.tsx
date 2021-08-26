@@ -20,11 +20,7 @@ describe('UI Reducer', () => {
     const { result } = renderHook(() => useContext(MockContext), { wrapper })
     expect(result.current.state).toStrictEqual(initialState)
   })
-  it('Should toggle drawer', () => {
-    const { result } = renderHook(() => useContext(MockContext), { wrapper })
-    act(() => result.current.dispatch({ type: uiTypes.TOGGLE_DRAWER }))
-    expect(result.current.state.drawer.open).toBeTruthy()
-  })
+
   it('Should toggle toast', () => {
     const { result } = renderHook(() => useContext(MockContext), { wrapper })
     act(() =>
@@ -44,15 +40,5 @@ describe('UI Reducer', () => {
       })
     )
     expect(result.current.state.dialog.open).toBeTruthy()
-  })
-  it('Should toggle dark', () => {
-    const { result } = renderHook(() => useContext(MockContext), { wrapper })
-    act(() =>
-      result.current.dispatch({
-        type: uiTypes.TOGGLE_DARK,
-        payload: false,
-      })
-    )
-    expect(result.current.state.theme).toBe('light')
   })
 })

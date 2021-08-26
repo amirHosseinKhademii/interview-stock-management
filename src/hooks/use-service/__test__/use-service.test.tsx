@@ -41,7 +41,7 @@ describe('Use service', () => {
   it('Should return proper data on post', async () => {
     const { result, waitFor } = renderHook(
       () =>
-        service.current.usePost({
+        service.current.usePatch({
           url: 'whatever',
         }),
       {
@@ -50,7 +50,7 @@ describe('Use service', () => {
     )
     act(() => result.current.mutate({ payload: '' }))
     await waitFor(() => result.current.isSuccess)
-    expect(result.current.data).toBe('Success post')
+    expect(result.current.data).toBe('Success patch')
   })
   it('Should return proper data on put', async () => {
     const { result, waitFor } = renderHook(
@@ -65,19 +65,5 @@ describe('Use service', () => {
     act(() => result.current.mutate({ payload: '' }))
     await waitFor(() => result.current.isSuccess)
     expect(result.current.data).toBe('Success put')
-  })
-  it('Should return proper data on delete', async () => {
-    const { result, waitFor } = renderHook(
-      () =>
-        service.current.useDelete({
-          url: 'whatever',
-        }),
-      {
-        wrapper,
-      }
-    )
-    act(() => result.current.mutate())
-    await waitFor(() => result.current.isSuccess)
-    expect(result.current.data).toBe('Success delete')
   })
 })
