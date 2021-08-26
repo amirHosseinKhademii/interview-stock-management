@@ -37,7 +37,7 @@ describe('Use service', () => {
       }
     )
     await waitFor(() => result.current.isSuccess)
-    expect(result.current.data.data).toBe(MockData)
+    expect(result.current.data).toBe(MockData)
   })
   it('Should return proper data on post', async () => {
     const { result, waitFor } = renderHook(
