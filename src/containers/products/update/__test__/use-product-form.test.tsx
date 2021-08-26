@@ -6,7 +6,7 @@ describe('Use Product form', () => {
   it('Should properly submit ', async () => {
     const { result, waitFor } = renderHook(() => useProductForm(), { wrapper })
     expect(result.current.patchData).toBe(undefined)
-    act(() => result.current.onSubmit())
+    await act(async () => await result.current.onSubmit())
     await waitFor(() => result.current.isSuccess)
     expect(result.current.patchData).toBe('Success patch')
   })

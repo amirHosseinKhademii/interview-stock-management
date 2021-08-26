@@ -8,7 +8,7 @@ describe('Use Product refill', () => {
       wrapper,
     })
     expect(result.current.putData).toBe(undefined)
-    act(() => result.current.onSubmit())
+    await act(async () => await result.current.onSubmit())
     await waitFor(() => result.current.isSuccess)
     expect(result.current.putData).toBe('Success put')
   })
