@@ -11,7 +11,7 @@ export const Router = memo((): JSX.Element => {
           <Switch>
             <Route
               exact
-              path="/products"
+              path="/"
               component={lazy(() => import('pages/products'))}
             />
           </Switch>
