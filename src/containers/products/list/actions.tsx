@@ -23,7 +23,7 @@ export const ProductsListActions: FC<{ item: any }> = memo(({ item }) => {
             toggleDialog({
               open: true,
               type: 'product-refill',
-              data: item,
+              data: item.cell.row.original,
             })
           }}
         >
@@ -41,7 +41,7 @@ export const ProductsListActions: FC<{ item: any }> = memo(({ item }) => {
             toggleDialog({
               open: true,
               type: 'product-buy',
-              data: item,
+              data: item.cell.row.original,
             })
           }}
         >
@@ -58,7 +58,7 @@ export const ProductsListActions: FC<{ item: any }> = memo(({ item }) => {
             toggleDialog({
               open: true,
               type: 'product-reserve',
-              data: item,
+              data: item.cell.row.original,
             })
           }}
         >
@@ -75,7 +75,7 @@ export const ProductsListActions: FC<{ item: any }> = memo(({ item }) => {
             toggleDialog({
               open: true,
               type: 'product-update',
-              data: item,
+              data: item.cell.row.original,
             })
           }}
         >
@@ -92,7 +92,7 @@ export const ProductsListActions: FC<{ item: any }> = memo(({ item }) => {
             toggleDialog({
               open: true,
               type: 'product-details',
-              data: item,
+              data: item.cell.row.original,
             })
           }}
         >

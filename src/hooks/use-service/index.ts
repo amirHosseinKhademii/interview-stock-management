@@ -10,17 +10,17 @@ export const useService = () => {
       const {
         url,
         key,
-        params,
         onError,
         onSuccess,
         onSettled,
-        onFocus,
-        onMount,
         enabled,
         initialData,
         keepPreviousData,
       } = props
-      const asyncGet = async () => await axios.get(url)
+      const asyncGet = async () => {
+        const { data } = await axios.get(url)
+        return data
+      }
       return useQuery(key, asyncGet, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
@@ -29,7 +29,7 @@ export const useService = () => {
         ...(initialData && { initialData }),
         ...(keepPreviousData && { keepPreviousData }),
         refetchOnWindowFocus: false,
-        refetchOnMount: false,
+        refetchOnMount: true,
       })
     },
 

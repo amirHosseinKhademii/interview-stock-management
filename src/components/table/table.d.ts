@@ -14,21 +14,23 @@ interface ITable {
   onPaginate?: any
   loading?: boolean
   fetching?: boolean
-  page?: number
+  page?: any
   total?: number
   title?: string
   onRowClick?: any
+  prepareRow?: any
 }
 
 interface ITableCell {
   column?: any
   index?: any
-  item?: any
+  cell?: any
+  row?: any
   columns?: Array<TColumn>
 }
 
 interface ITableRow {
-  item?: any
+  row?: any
   columns?: Array<TColumn>
   index?: any
   expand?: any

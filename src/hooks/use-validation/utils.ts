@@ -45,7 +45,7 @@ const minutesValidation = (value) => {
 }
 
 const numberValidation = (value) => {
-  if (value)
+  if (value && typeof value === 'string')
     if (
       value.match('^[+-]?([0-9]+.?[0-9]*|.[0-9]+)$') === null ||
       !value.match('^[+-]?([0-9]+.?[0-9]*|.[0-9]+)$').length

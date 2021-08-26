@@ -1,18 +1,14 @@
 import { ProductsList } from 'containers/products/list/index'
 import { ProductModal } from 'containers/products/modal'
-import { useUi } from 'hooks/use-ui'
-import { Fragment } from 'react'
+import { Fragment, memo } from 'react'
 
-const Products = () => {
-  const {
-    uiState: { dialog },
-  } = useUi()
+const Products = memo(() => {
   return (
     <Fragment>
       <ProductsList />
-      {dialog.open && <ProductModal />}
+      <ProductModal />
     </Fragment>
   )
-}
+})
 
 export default Products

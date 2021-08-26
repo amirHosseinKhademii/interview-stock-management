@@ -30,7 +30,7 @@ const pager = (pageCount, page) => {
 export const TablePagination = ({ pageCount, gotoPage, page }) => {
   if (pageCount > 1)
     return (
-      <div className=" w-full flex items-center justify-end mt-20">
+      <div className=" w-full flex items-center justify-end mt-12">
         <Button
           type="button"
           onClick={() => gotoPage(0)}
@@ -38,7 +38,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
             'w-8 h-8  disabled:opacity-30 mr-2',
             page === 0
               ? 'bg-secondary text-white'
-              : ' bg-gray-300 text-gray-600'
+              : ' bg-gray-500 text-gray-200'
           )}
         >
           {1}
@@ -53,7 +53,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
               'w-8 h-8  mr-2 disabled:opacity-30',
               page === item
                 ? 'bg-secondary text-white'
-                : ' bg-gray-300 text-gray-600'
+                : ' bg-gray-500 text-gray-200'
             )}
           >
             {item + 1}
@@ -66,7 +66,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
             'w-8 h-8  disabled:opacity-30',
             page === pageCount - 1
               ? 'bg-secondary text-white'
-              : ' bg-gray-300 text-gray-600'
+              : ' bg-gray-500 text-gray-200'
           )}
         >
           {pageCount}

@@ -1,4 +1,4 @@
-import { FC, memo, useMemo } from 'react'
+import { FC, memo, useEffect, useMemo } from 'react'
 import { useTable, usePagination, useGlobalFilter } from 'react-table'
 import { classNames } from 'utils/classes'
 
@@ -26,8 +26,6 @@ export const Table: FC<ITable> = memo(
       useGlobalFilter,
       usePagination
     )
-
-    console.log(pageIndex)
 
     return (
       <div
