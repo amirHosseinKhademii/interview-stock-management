@@ -7,13 +7,12 @@ export const useProductDetails = () => {
   const { useGet } = useService()
   const { onError } = useError()
   const {
-    toggleDialog,
     uiState: {
       dialog: { data: dialogData },
     },
   } = useUi()
 
-  const { data, isLoading, isFetching } = useGet({
+  const { data, isLoading, isFetching, isSuccess } = useGet({
     key: ['PRODUCTS_DETAILS'],
     url: dialogData ? `http://localhost:8080/api/product/${dialogData.id}` : '',
     onFocus: false,
@@ -21,6 +20,7 @@ export const useProductDetails = () => {
   })
 
   return {
+    isSuccess,
     data: useMemo(() => (data ? data.data : []), [data]),
     isLoading: useMemo(() => isLoading || isFetching, [isLoading, isFetching]),
   }

@@ -26,10 +26,10 @@ export const useService = () => {
         ...(onError && { onError }),
         ...(onSettled && { onSettled }),
         ...(enabled !== undefined && { enabled }),
-        ...(onFocus !== undefined && { refetchOnWindowFocus: onFocus }),
-        ...(onMount !== undefined && { refetchOnMount: onMount }),
         ...(initialData && { initialData }),
         ...(keepPreviousData && { keepPreviousData }),
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
       })
     },
 

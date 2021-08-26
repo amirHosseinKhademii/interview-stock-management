@@ -6,14 +6,16 @@ import { ICShopCart } from 'icons/shop-cart'
 import { ICMemory } from 'icons/memory'
 import { ICPlus } from 'icons/plus'
 import { ICEyeFill } from 'icons/eye-fill'
+import { FC, memo } from 'react'
 
-export const ProductsListActions = ({ item }) => {
+export const ProductsListActions: FC<{ item: any }> = memo(({ item }) => {
   const { toggleDialog } = useUi()
 
   return (
     <div className=" hidden group-hover:flex  items-center justify-end ">
       <Tooltip content="Refill">
         <Button
+          type="button"
           icon
           className="peer"
           onClick={(e) => {
@@ -31,6 +33,7 @@ export const ProductsListActions = ({ item }) => {
 
       <Tooltip content="Buy">
         <Button
+          type="button"
           icon
           className="peer"
           onClick={(e) => {
@@ -47,6 +50,7 @@ export const ProductsListActions = ({ item }) => {
       </Tooltip>
       <Tooltip content="Reserve">
         <Button
+          type="button"
           icon
           className="peer"
           onClick={(e) => {
@@ -63,6 +67,7 @@ export const ProductsListActions = ({ item }) => {
       </Tooltip>
       <Tooltip content="Edit">
         <Button
+          type="button"
           icon
           className="peer"
           onClick={(e) => {
@@ -79,6 +84,7 @@ export const ProductsListActions = ({ item }) => {
       </Tooltip>
       <Tooltip content="Details">
         <Button
+          type="button"
           icon
           className="peer"
           onClick={(e) => {
@@ -95,4 +101,4 @@ export const ProductsListActions = ({ item }) => {
       </Tooltip>
     </div>
   )
-}
+})

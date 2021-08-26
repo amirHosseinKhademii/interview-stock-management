@@ -32,6 +32,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
     return (
       <div className=" w-full flex items-center justify-end mt-20">
         <Button
+          type="button"
           onClick={() => gotoPage(0)}
           className={classNames(
             'w-8 h-8  disabled:opacity-30 mr-2',
@@ -44,6 +45,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
         </Button>
         {pager(pageCount, page).map((item, index) => (
           <Button
+            type="button"
             id={item + 1}
             key={index}
             onClick={() => gotoPage(item)}
@@ -58,6 +60,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
           </Button>
         ))}
         <Button
+          type="button"
           onClick={() => gotoPage(pageCount - 1)}
           className={classNames(
             'w-8 h-8  disabled:opacity-30',

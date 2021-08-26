@@ -20,18 +20,15 @@ export const ProductDetails = memo(() => {
             disabled
             value={data.stock.toString()}
           />
-          <Input
-            label="Reservations"
-            className="mt-4"
-            disabled
-            value={
-              data.reservations !== undefined &&
-              data.reservations.length &&
-              data.reservations[0]
-                ? data.reservations[0].amount.toString()
-                : '0'
-            }
-          />
+          {data.reservations.map((item) => (
+            <Input
+              key={item.id}
+              label="Reservations"
+              className="mt-4"
+              disabled
+              value={item.amount.toString()}
+            />
+          ))}
         </Fragment>
       )}
     </div>

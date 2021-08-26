@@ -1,10 +1,5 @@
 import { FC, memo, useMemo } from 'react'
-import {
-  useTable,
-  usePagination,
-  useGlobalFilter,
-  useAsyncDebounce,
-} from 'react-table'
+import { useTable, usePagination, useGlobalFilter } from 'react-table'
 import { classNames } from 'utils/classes'
 
 import { TablePagination } from './table-pagination'
@@ -12,7 +7,7 @@ import { TableToolbar } from './table-toolbar'
 import { TableBody } from './table-body'
 
 export const Table: FC<ITable> = memo(
-  ({ className, columns, data, expand, loading, title, onRowClick }) => {
+  ({ className, columns, data, loading, title }) => {
     const memoColumns = useMemo(() => columns, [])
     const memoData = useMemo(() => data || [], [data])
 
@@ -20,34 +15,32 @@ export const Table: FC<ITable> = memo(
       state: { pageIndex },
       page,
       pageCount,
-      setGlobalFilter,
       gotoPage,
+      prepareRow,
     } = useTable(
       {
         columns: memoColumns,
         data: memoData,
+        autoResetPage: false,
       },
       useGlobalFilter,
       usePagination
     )
 
-    // const onChange = useAsyncDebounce((value) => {
-    //   setGlobalFilter(value || undefined)
-    // }, 200)
+    console.log(pageIndex)
 
     return (
       <div
         className={classNames('w-full flex flex-col items-end p-4 ', className)}
       >
-        <TableToolbar title={title} onChange={() => {}} />
+        <TableToolbar title={title} />
 
         <TableBody
           columns={columns}
           loading={loading}
           page={page}
-          expand={expand}
           data={data}
-          onRowClick={onRowClick}
+          prepareRow={prepareRow}
         />
 
         <TablePagination

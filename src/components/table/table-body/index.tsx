@@ -2,16 +2,9 @@ import { classNames } from 'utils/classes'
 import { TableHead } from '../table-head'
 import { TableRow } from '../table-row'
 
-export const TableBody = ({
-  columns,
-  loading,
-  page,
-  expand,
-  data,
-  onRowClick,
-}) => {
+export const TableBody = ({ columns, loading, page, data, prepareRow }) => {
   return (
-    <div
+    <tbody
       className={classNames('w-full flex flex-col items-center ')}
       slot="wrapper"
     >
@@ -24,26 +17,26 @@ export const TableBody = ({
             item={item}
             columns={columns}
             index={index}
-            expand={expand}
             loading={loading}
           />
         ))
       ) : page && page.length > 0 ? (
-        (page || []).map((item, index) => (
-          <TableRow
-            key={index}
-            item={item}
-            columns={columns}
-            index={index}
-            expand={expand}
-            loading={loading}
-            length={data.length}
-            onRowClick={onRowClick}
-          />
-        ))
+        (page || []).map((item, index) => {
+          prepareRow(item)
+          return (
+            <TableRow
+              key={index}
+              item={item}
+              columns={columns}
+              index={index}
+              loading={loading}
+              length={data.length}
+            />
+          )
+        })
       ) : (
-        <span className="text-gray-600 pt-6 text-lg">No items</span>
+        <tr className="text-gray-600 pt-6 text-lg">No items</tr>
       )}
-    </div>
+    </tbody>
   )
 }
