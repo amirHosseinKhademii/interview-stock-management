@@ -3,7 +3,7 @@ import { classNames } from 'utils/classes'
 
 export const TableRowLoading: FC<ITable> = memo(({ columns }) => {
   return (
-    <div className="w-full row-start h-12 px-6">
+    <div className="w-full row-start h-12 px-6" data-testid="table-skeleton">
       {columns.map((column, index) => (
         <div
           key={index}

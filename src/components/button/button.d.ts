@@ -5,7 +5,7 @@ interface IButton {
   type?: 'submit' | 'button' | 'reset'
   icon?: boolean
   loading?: boolean
-  id?: string
+  id?: string | number
   onClick?: Function
   onMouseEnter?: Function
   onMouseLeave?: Function

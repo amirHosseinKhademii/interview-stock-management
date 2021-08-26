@@ -7,7 +7,7 @@ export const useProductsList = () => {
   const { useGet } = useService()
   const { onError } = useError()
 
-  const { data, isLoading, isFetching } = useGet({
+  const { data, isLoading, isFetching, isSuccess } = useGet({
     key: ['PRODUCTS_LIST'],
     url: 'http://localhost:8080/api/product',
     onFocus: false,
@@ -15,6 +15,7 @@ export const useProductsList = () => {
   })
 
   return {
+    isSuccess,
     data: useMemo(() => (data ? data.data : []), [data]),
     isLoading: useMemo(() => isLoading || isFetching, [isLoading, isFetching]),
     columns: useMemo(

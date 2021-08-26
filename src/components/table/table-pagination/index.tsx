@@ -44,6 +44,7 @@ export const TablePagination = ({ pageCount, gotoPage, page }) => {
         </Button>
         {pager(pageCount, page).map((item, index) => (
           <Button
+            id={item + 1}
             key={index}
             onClick={() => gotoPage(item)}
             className={classNames(
