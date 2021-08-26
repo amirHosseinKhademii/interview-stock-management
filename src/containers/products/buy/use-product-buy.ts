@@ -19,7 +19,12 @@ export const useProductBuy = () => {
 
   const formState = useWatch({ control }) as any
 
-  const { mutate, isLoading } = usePut({
+  const {
+    mutate,
+    isLoading,
+    isSuccess,
+    data: putData,
+  } = usePut({
     url: data ? `http://localhost:8080/api/product/${data.id}/buy` : '',
     params: { amount: formState.amount },
     onError,
@@ -32,6 +37,8 @@ export const useProductBuy = () => {
   return {
     control,
     isLoading,
+    isSuccess,
+    putData,
     onSubmit: handleSubmit((state: any) => {
       if (data.stock < parseInt(state.amount))
         setError('amount', {
