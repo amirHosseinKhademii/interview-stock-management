@@ -5,6 +5,7 @@ import { classNames } from 'utils/classes'
 import { TablePagination } from './table-pagination'
 import { TableToolbar } from './table-toolbar'
 import { TableBody } from './table-body'
+import { TableHead } from './table-head'
 
 export const Table: FC<ITable> = memo(
   ({ className, columns, data, loading, title }) => {
@@ -28,19 +29,18 @@ export const Table: FC<ITable> = memo(
     )
 
     return (
-      <div
-        className={classNames('w-full flex flex-col items-end p-4 ', className)}
-      >
+      <div className="w-full flex flex-col items-end p-4 ">
         <TableToolbar title={title} />
-
-        <TableBody
-          columns={columns}
-          loading={loading}
-          page={page}
-          data={data}
-          prepareRow={prepareRow}
-        />
-
+        <table className="w-full flex flex-col items-center ">
+          <TableHead columns={columns} loading={loading} />
+          <TableBody
+            columns={columns}
+            loading={loading}
+            page={page}
+            data={data}
+            prepareRow={prepareRow}
+          />
+        </table>
         <TablePagination
           pageCount={pageCount}
           page={pageIndex}
