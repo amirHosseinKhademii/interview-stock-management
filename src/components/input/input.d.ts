@@ -1,34 +1,23 @@
 interface IInput {
   className?: string
   label?: string
-  value?: any
+  value?: string | string[]
   placeholder?: string
   type?: 'text' | 'email' | 'password' | 'number' | 'date'
   error?: string
-  name?: any
+  name?: string
   id?: string
-  later?: boolean | undefined
-  required?: boolean | undefined
-  max?: string | number | undefined
-  min?: string | number | undefined
-  precent?: boolean
+  required?: boolean
   size?: 'small' | 'default' | 'large'
   disabled?: boolean
-  onClick?: any
   withError?: boolean
-  icon?: any
-  interactive?: boolean
-  open?: boolean
-  toggle?: any
-  validate?: any
-  validation?: any
-  onChange?: any
+  validate?: Function
+  validation?: Function
+  onChange?: ChangeEventHandler<HTMLInputElement>
   control?: any
-  fieldChange?: any
-  fieldValue?: any
+  fieldChange?: ChangeEventHandler<HTMLInputElement>
+  fieldValue?: string
   fieldError?: any
   fieldRef?: any
-  hours?: boolean
-  minutes?: boolean
   number?: boolean
 }

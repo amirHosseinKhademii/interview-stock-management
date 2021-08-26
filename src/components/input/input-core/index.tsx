@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { inputCoreActualValue, inputCoreClassName } from './helper'
 
-export const InputCore: FC<IInput> = memo((props) => {
+export const InputCore: FC<IInput> = memo((props): JSX.Element => {
   if (props.control)
     return (
       <input
@@ -12,13 +12,11 @@ export const InputCore: FC<IInput> = memo((props) => {
         placeholder={props.placeholder}
         disabled={props.disabled}
         value={props.fieldValue || ''}
-        onClick={props.onClick}
         onChange={props.fieldChange}
         className={inputCoreClassName(
           props.fieldError,
           props.withError,
-          props.size,
-          props.icon
+          props.size
         )}
       />
     )
@@ -31,14 +29,8 @@ export const InputCore: FC<IInput> = memo((props) => {
         placeholder={props.placeholder}
         disabled={props.disabled}
         value={inputCoreActualValue(props.value)}
-        onClick={props.onClick}
         onChange={props.onChange}
-        className={inputCoreClassName(
-          props.error,
-          props.withError,
-          props.size,
-          props.icon
-        )}
+        className={inputCoreClassName(props.error, props.withError, props.size)}
       />
     )
 })

@@ -1,7 +1,7 @@
 import { FC, memo } from 'react'
 import { classNames } from 'utils'
 
-export const Error: FC<IError> = memo(({ error, className }) => {
+export const Error: FC<IError> = memo(({ error, className }): JSX.Element => {
   if (error && error.message)
     return (
       <p
