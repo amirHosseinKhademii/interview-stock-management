@@ -1,5 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { MockData } from 'tests'
 
 import { useService } from '..'
 
@@ -36,7 +37,7 @@ describe('Use service', () => {
       }
     )
     await waitFor(() => result.current.isSuccess)
-    expect(result.current.data.data).toBe('Did it')
+    expect(result.current.data.data).toBe(MockData)
   })
   it('Should return proper data on post', async () => {
     const { result, waitFor } = renderHook(
