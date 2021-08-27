@@ -7,7 +7,7 @@ export const useProductForm = () => {
   const {
     toggleDialog,
     uiState: {
-      dialog: { data, queryKey },
+      dialog: { data },
     },
   } = useUi()
 
@@ -15,7 +15,7 @@ export const useProductForm = () => {
     defaultValues: data
       ? {
           name: data.name,
-          stock: data.stock,
+          stock: data.stock || '0',
         }
       : {},
   })

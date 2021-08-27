@@ -1,6 +1,11 @@
 import { classNames } from 'utils/classes'
 
-export const buttonClassName = (icon, loading, disabled, className) =>
+export const buttonClassName = (
+  icon?: boolean,
+  loading?: boolean,
+  disabled?: boolean,
+  className?: string
+) =>
   classNames(
     ' flex items-center justify-center transition rounded focus:outline-none  disabled:opacity-50 ',
     !icon && 'shadow',

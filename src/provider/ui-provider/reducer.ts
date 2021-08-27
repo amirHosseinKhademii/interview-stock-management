@@ -1,7 +1,7 @@
 import { uiTypes } from './types'
 import { initialState } from './state'
 
-export const reducer = (state = initialState, { type, payload }) => {
+export const reducer = (state: IState = initialState, { type, payload }) => {
   switch (type) {
     case uiTypes.TOGGLE_DIALOG:
       return {

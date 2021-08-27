@@ -24,7 +24,7 @@ export const useProductRefill = () => {
     data: putData,
   } = usePut({
     url: data ? `http://localhost:8080/api/product/${data.id}/refill` : '',
-    params: { amount: formState.amount },
+    params: { amount: parseInt(formState.amount) },
     onSuccess: () => {
       toggleDialog({ open: false, type: null, data: null })
       client.invalidateQueries('PRODUCTS_LIST')

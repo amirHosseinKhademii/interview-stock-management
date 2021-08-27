@@ -1,4 +1,4 @@
 interface IError {
-  error?: any;
-  className?: string;
+  error?: any
+  className?: string
 }

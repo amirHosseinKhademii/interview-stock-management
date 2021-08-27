@@ -24,6 +24,7 @@ The Application initializes the Database by adding a dummy Product with Id: 1 an
   ![Run IntelliJ](stock-management-raw/run-intellij.png)
 
 - Running in Command Line
+
   - Use command:
 
     `$ ./mvnw spring-boot:run`
@@ -44,7 +45,7 @@ The Application initializes the Database by adding a dummy Product with Id: 1 an
 
 - Decrease the Product stock
   - `$ curl -s -i -w "\n" -X PUT localhost:8080/api/product/1/buy?amount=3`
-  \*\* Testing the Error case:
+    \*\* Testing the Error case:
   - `$ curl -s -i -w "\n" -X PUT localhost:8080/api/product/1/buy?amount=200`
 
 ## install dependencies
@@ -58,3 +59,7 @@ The Application initializes the Database by adding a dummy Product with Id: 1 an
 ## build app
 
 - yarn build or npm run build
+
+## test client side
+
+- yarn test or npm run test

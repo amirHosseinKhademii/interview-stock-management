@@ -1,12 +1,12 @@
 interface IButton {
   className?: string
-  children?: any
+  children?: JSX.Element | string | number
   disabled?: boolean
   type?: 'submit' | 'button' | 'reset'
   icon?: boolean
   loading?: boolean
   id?: string | number
-  onClick?: Function
-  onMouseEnter?: Function
-  onMouseLeave?: Function
+  onClick?: MouseEventHandler<HTMLButtonElement>
+  onMouseEnter?: MouseEventHandler<HTMLButtonElement>
+  onMouseLeave?: MouseEventHandler<HTMLButtonElement>
 }

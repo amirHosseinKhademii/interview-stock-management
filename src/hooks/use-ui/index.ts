@@ -17,7 +17,6 @@ export const useUi = () => {
 
   return {
     uiState,
-
     toggleDialog,
     toggleToast,
   }

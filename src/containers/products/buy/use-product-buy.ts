@@ -1,6 +1,5 @@
 import { useForm, useWatch } from 'react-hook-form'
 import { useUi } from 'hooks/use-ui'
-import { useError } from 'hooks/use-error'
 import { useService } from 'hooks/use-service'
 
 export const useProductBuy = () => {
@@ -26,7 +25,7 @@ export const useProductBuy = () => {
     data: putData,
   } = usePut({
     url: data ? `http://localhost:8080/api/product/${data.id}/buy` : '',
-    params: { amount: formState.amount },
+    params: { amount: parseInt(formState.amount) },
     onSuccess: () => {
       toggleDialog({ open: false, type: null, data: null })
       client.invalidateQueries('PRODUCTS_LIST')

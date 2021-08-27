@@ -6,7 +6,7 @@ import { Input } from 'components/input'
 
 import { useProductBuy } from './use-product-buy'
 
-export const ProductBuy = memo(() => {
+export const ProductBuy = memo((): JSX.Element => {
   const { control, onSubmit, isLoading } = useProductBuy()
 
   return (

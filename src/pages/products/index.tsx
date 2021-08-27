@@ -1,14 +1,14 @@
 import { ProductsList } from 'containers/products/list/index'
 import { ProductModal } from 'containers/products/modal'
-import { Fragment, memo } from 'react'
+import { Fragment } from 'react'
 
-const Products = memo(() => {
+const Products = (): JSX.Element => {
   return (
     <Fragment>
       <ProductsList />
       <ProductModal />
     </Fragment>
   )
-})
+}
 
 export default Products

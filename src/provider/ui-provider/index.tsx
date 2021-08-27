@@ -1,9 +1,9 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, Dispatch } from 'react'
 import { reducer } from './reducer'
 import { initialState } from './state'
 
 export const UiContext =
-  createContext<{ uiState: any; uiDispatch: any }>(undefined)
+  createContext<{ uiState: IState; uiDispatch: Dispatch<any> }>(undefined)
 
 export const UiProvider = ({ children }) => {
   const [uiState, uiDispatch] = useReducer(reducer, initialState)
